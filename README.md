@@ -53,7 +53,7 @@
 
 ## 機能の実装方針予定
  フロントエンド HTML/CSS/javascript/figma 
- バックエンド Ruby on Rails バージョン7.1 
+ バックエンド Ruby on Rails バージョン3.1.4 
  データーベース PostgreSQL 
  デプロイサーバー render G
  em： devise1(ログイン機能) simple_form　 →家族構成や興味入力フォーム
