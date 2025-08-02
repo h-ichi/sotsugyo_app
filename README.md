@@ -52,10 +52,11 @@
 
 
 ## 機能の実装方針予定
- フロントエンド HTML/CSS/javascript/figma 
+ フロントエンド HTML/CSS/javascript
  バックエンド Ruby on Rails バージョン7.1 
  データーベース PostgreSQL 
- デプロイサーバー render G
- em： devise1(ログイン機能) simple_form　 →家族構成や興味入力フォーム
-Gem:httparty(API呼び出し) API:OpenWeatherMap API,Geogle Places API,Geolocation API 
+ デプロイサーバー render 
+ Gem： 
+ devise(ログイン機能) simple_form
+ httparty(API呼び出し) API:OpenWeatherMap API,Geogle Places API,Geolocation API 
 OpenAI APIキー
