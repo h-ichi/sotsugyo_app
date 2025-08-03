@@ -60,6 +60,7 @@
  デプロイサーバー render 
  Gem： 
  devise(ログイン機能) simple_form
+ carrierwave 
  httparty(API呼び出し) API:OpenWeatherMap API,Geogle Places API,Geolocation API 
 OpenAI APIキー
 
@@ -67,4 +68,4 @@ OpenAI APIキー
 Figma：https://www.figma.com/design/Po2fTMAjP4BQrsRHNLi2kk/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C_app?node-id=0-1&p=f&t=cApzqQY8rk6MbLMi-0
 
 ##　ER図
-![alt text](image.png)
+![alt text](image-1.png)
