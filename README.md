@@ -30,13 +30,12 @@
 | 予約機能     | なし                | 有                  | 有                | 有                  |
 | 日記機能     | 有                  | なし                | 有                | なし                |
 
-
-
 ## 機能候補
 ### 方向性 
 1.まずは自分が使いやすいものにする(候補を表示するという最低限の機能) 
 2.身近な人に使ってもらって機能を拡充する（日記機能など） 
 3.反響次第でサービスを広げるか検討 
+
 ### MVPリリース時に作っていたいもの 
 1.ユーザー登録機能
 2.ログイン機能
@@ -68,4 +67,5 @@ OpenAI APIキー
 Figma：https://www.figma.com/design/Po2fTMAjP4BQrsRHNLi2kk/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C_app?node-id=0-1&p=f&t=cApzqQY8rk6MbLMi-0
 
 ##　ER図
+![alt text](image.png)
 ![alt text](image-1.png)
