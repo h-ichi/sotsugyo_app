@@ -1,7 +1,86 @@
-<div>
-<h2>おやこプラン</h2>
-<p>サクッと決まる休日プランで、家族みんなニッコリ</p>
-<div>
-<div>
+<div class="top-container">
+ <div class="top-title">
+  <h2>
+   <span class="color1">き</span>
+   <span class="color2">っ</span>
+   <span class="color3">ず</span>
+   <span class="color4">な</span>
+   <span class="color5">び</span>
+   </h2>
+   <p>さくッと決まる休日プランで、家族みんなにっこり</p>
+  </div>
+  <section class="disc-content"> 
+   <div class="content">
+    <p>AIがその日のお出かけを提案</p>
+   </div>
+   <div class="content">
+    <p>気に入ったお出かけは登録</p>
+   </div>
+   <div class="content">
+    <p>思い出は日記に記録しよう</p>
+   </div>
+  </section>
+  <div class="button-center">
+  <a href="#" class="start-button">さっそくはじめる</a>
+  </div>
 </div>
-<button>さっそくはじめる</button>
+<style>
+.top-container{
+  flex: 0 0 auto;         
+    width: clamp(300px, 80%, 800px); /* 幅自動調整 */
+    margin: 50px auto;            
+    padding: 30px;
+    text-align: center;
+}
+ .top-title h2{
+  font-size:60px;
+  display: flex;
+  justify-content: center;
+  padding-top:64px;
+  font-family: "Hiragino Maru Gothic Pro", "Hiragino Maru Gothic ProN", "Yu Gothic", "YuGothic", sans-serif;
+  font-weight: 900; /* 中太 */
+  .color1 { color: red; }
+  .color2 { color: orange; }
+  .color3 { color: yellow; }
+  .color4 { color: green; }
+  .color5 { color: blue; }
+
+
+ }
+ .top-title p{
+  display: flex;
+  justify-content: center;
+  font-family: "Hiragino Maru Gothic Pro", "Hiragino Maru Gothic ProN", "Yu Gothic", "YuGothic", sans-serif;
+  font-size:20px;
+ }
+ 
+ .disc-content{
+  margin:64px auto;
+  display:flex;
+  flex-wrap:wrap;           gap:12px;                 justify-content: center; 
+ }
+
+ .content{
+  padding:30px;
+  border: 10px outset #F5F5F5;
+  flex: 1 1 20%;
+  max-width: 300px;
+  box-sizing: border-box;
+ }
+
+ .start-button{
+  display: inline-block;
+  background: #ff6f6f;
+  color: black;
+  padding: 10px 50px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 18px;
+  text-align:center;
+ }
+ .button-center{
+  display: flex;
+  justify-content: center;
+  margin-top:64px;
+}
+ </style>

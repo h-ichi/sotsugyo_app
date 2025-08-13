@@ -12,6 +12,9 @@ RUN bundle install
 # アプリコードをコピー
 COPY . .
 
+# assetsプリコンパイル
+RUN bundle exec rake assets:precompile
+
 EXPOSE 3000
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
