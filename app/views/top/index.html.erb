@@ -1,7 +1,105 @@
-<div>
-<h2>おやこプラン</h2>
-<p>サクッと決まる休日プランで、家族みんなニッコリ</p>
-<div>
-<div>
+<div class="top-container">
+ <div class="top-title">
+  <h2>
+   <span class="color1">き</span>
+   <span class="color2">っ</span>
+   <span class="color3">ず</span>
+   <span class="color4">な</span>
+   <span class="color5">び</span>
+   </h2>
+   <p>さくッと決まる休日プランで、家族みんなにっこり</p>
+  </div>
+  <section class="disc-content"> 
+   <div class="content">
+   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+   <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1"/>
+ </svg>
+    <p>AIがその日のお出かけを提案</p>
+   </div>
+   <div class="content">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+    </svg>
+    <p>気に入ったお出かけは登録</p>
+   </div>
+   <div class="content">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
+   <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/>
+    </svg>
+    <p>思い出は日記に記録しよう</p>
+   </div>
+  </section>
+  <div class="button-center">
+  <a href="#" class="start-button">さっそくはじめる</a>
+  </div>
 </div>
-<button>さっそくはじめる</button>
+<style>
+.top-container{
+  flex: 0 0 auto;         
+    width: clamp(300px, 80%, 800px); /* 幅自動調整 */
+    margin: 50px auto;            
+    padding: 30px;
+    text-align: center;
+}
+ .top-title h2{
+  font-size:60px;
+  display: flex;
+  justify-content: center;
+  padding-top:48px;
+  font-family: "Hiragino Maru Gothic Pro", "Hiragino Maru Gothic ProN", "Yu Gothic", "YuGothic", sans-serif;
+  font-weight: 900; /* 中太 */
+  .color1 { color: red; }
+  .color2 { color: orange; }
+  .color3 { color: yellow; }
+  .color4 { color: green; }
+  .color5 { color: blue; }
+
+
+ }
+ .top-title p{
+  display: flex;
+  justify-content: center;
+  font-family: "Hiragino Maru Gothic Pro", "Hiragino Maru Gothic ProN", "Yu Gothic", "YuGothic", sans-serif;
+  font-size:20px;
+ }
+ 
+ .disc-content{
+  margin:64px auto;
+  display:flex;
+  flex-wrap:wrap;           gap:12px;                 justify-content: center; 
+ }
+
+ .content{
+  padding:30px;
+  border: 10px outset #F5F5F5;
+  flex: 1 1 20%;
+  max-width: 300px;
+  box-sizing: border-box;
+ }
+
+ .bi-lightbulb {
+    color: orange;
+  }
+ .bi-collection{
+    color: green;
+ }
+ .bi-star{
+    color:yellow;
+ }
+
+ .start-button{
+  display: inline-block;
+  background: #ff6f6f;
+  color: black;
+  padding: 10px 50px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 18px;
+  text-align:center;
+ }
+ .button-center{
+  display: flex;
+  justify-content: center;
+  margin-top:64px;
+}
+ </style>
