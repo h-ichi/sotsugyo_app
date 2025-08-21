@@ -1,0 +1,79 @@
+<div class="top-container">
+<h2>新規登録</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+  <%= f.label :nickname, "ニックネーム", class: "field-title" %><br />
+  <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス", class: "field-title" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード", class: "field-title" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "パスワード(確認)" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit "登録してログイン", class: "submit-button" %>
+  </div>
+<% end %>
+</div>
+
+<style>
+.top-container{
+  flex: 0 0 auto;         
+    width: clamp(300px, 80%, 800px); /* 幅自動調整 */
+    margin: 20px auto;            
+    padding: 30px;
+    text-align: center;
+}
+
+h2{
+  font-size:40px;
+  padding-top:48px;
+}
+
+.field{
+  margin-top:12px;
+}
+
+.field input {
+  width:320px;
+  padding: 2px;    
+  font-size: 16px;  
+  box-sizing: border-box; 
+}
+
+.submit {
+  margin-top:36px;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  display: inline-block;
+  background: #ff6f6f; 
+  color: black;        
+  padding: 10px 50px;
+  border-radius: 24px;
+  border: none;        
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;   
+}
+
+</style>

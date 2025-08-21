@@ -1,0 +1,97 @@
+<div class="top-container">
+  <div class="top-title">
+    <h2>今日は何して遊ぼうかな？</h2>
+  </div>
+
+  
+  <%= form_with url: suggestions_path, method: :post, local: true do |f| %>
+    <div class="mb-3">
+      <%= f.label :family_adults, "大人の人数", class: "form-label" %>
+      <%= f.number_field :family_adults, class: "form-control", min: 1, value: 2 %>
+    </div>
+    <div data-controller="children">
+    <div class="mb-3">
+    <label class="form-label" for="family_children">子どもの人数</label>
+    <input type="number" id="family_children" name="family_children" min="0" value="1"
+           class="form-control" data-children-target="count" data-action="input->children#update">
+    </div>
+
+    <div data-children-target="fields">
+     <!-- 年齢フォームがここに追加される -->
+    </div>
+    </div>
+    <div class="mb-3">
+      <%= f.label :interests, "興味のあるジャンル", class: "form-label" %><br>
+      <% ["アウトドア", "インドア", "学び", "癒し"].each do |interest| %>
+        <div class="form-check form-check-inline">
+          <%= f.check_box :interests, { multiple: true, class: "form-check-input" }, interest, nil %>
+          <%= f.label :interests, interest, class: "form-check-label" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :budget, "予算", class: "form-label" %>
+      <%= f.select :budget, ["0〜1000円", "1000〜5000円", "5000円以上"], {}, class: "form-select" %>
+    </div>
+
+    <div class="mb-3">
+     <%= f.label :area, "エリア", class: "form-label" %>
+     <%= f.text_field :area, placeholder: "例: 東京都渋谷区", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :weather, "天気", class: "form-label" %>
+      <%= f.select :weather, ["晴れ", "曇り", "雨"], {}, class: "form-select" %>
+    </div>
+
+    <%= form_with url: suggestions_path, method: :post, local: true do |f| %>
+      <!-- フォーム項目 -->
+      <div class="button-center">
+        <%= f.submit "遊び場を提案してもらう", class: "start-button" %>
+      </div>
+    <% end %>
+    
+  <% end %>
+
+  <% if @suggestions.present? %>
+  <% end %>
+</div>
+
+<style>
+.top-container {
+  display: flex;
+  flex-direction: column; /* 子要素を縦に並べる */
+  justify-content: center; /* 縦方向中央 */
+  align-items: center;     /* 横方向中央 */
+  min-height: 100vh;       /* ビューポートいっぱいの高さ */
+  text-align: center;      /* テキストも中央 */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.start-button {
+  display: inline-block;
+  background: #ff6f6f;
+  color: black;
+  padding: 10px 50px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  line-height: 1.5;
+}
+
+.start-button:hover {
+  background: #ff4a4a;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+</style>

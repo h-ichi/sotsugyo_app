@@ -1,0 +1,84 @@
+<h2 class="page-title">休日の遊びアイデア</h2>
+
+<div class="suggestions-container">
+  <% @suggestions.to_s.split("\n").reject(&:blank?)[0..2].each_with_index do |suggestion, index| %>
+    <div class="suggestion-card">
+      <h3>提案 <%= index + 1 %></h3>
+      <p><%= suggestion %></p>
+    </div>
+  <% end %>
+</div>
+
+<div class="button-center">
+   <%= link_to "TOPページへ戻る", root_path, class: "start-button" %>
+  <%= link_to "もう一度やり直す", new_suggestion_path, class: "back-button" %>
+</div>
+
+<style>
+.page-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.suggestions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.suggestion-card {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.suggestion-card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.suggestion-card p {
+  margin-bottom: 0;
+  color: #555;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center; 
+  gap: 16px; 
+  margin-top: 30px;
+}
+
+
+.start-button{
+  display: inline-block;
+  background: #ff6f6f;
+  color: black;
+  padding: 10px 50px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 18px;
+  text-align:center;
+  
+ }
+ .back-button{
+  display: inline-block;
+  background: #BFEFFF;
+  color: black;
+  padding: 10px 50px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 18px;
+  text-align:center;
+ }
+ .button-center{
+  display: flex;
+  justify-content: center;
+  margin-top:64px;
+}
+</style>
