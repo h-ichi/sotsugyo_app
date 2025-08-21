@@ -15,18 +15,29 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">ログイン</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">TOP</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">マイページ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">新規登録</a>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "TOP", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">マイページ</a>
+          </li>
+          <li class="nav-item">
+           <%= form_with url: destroy_user_session_path, method: :delete, local: true, class: "logout-form" do %>
+           <%= submit_tag "ログアウト", class: "nav-link logout-link" %>
+           <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "TOP", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

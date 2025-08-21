@@ -21,17 +21,10 @@
    </div>
   </section>
   <div class="button-center">
-  <a href="#" class="start-button">さっそくはじめる</a>
+   <%= link_to "さっそくはじめる", new_suggestion_path, class: "start-button" %>
   </div>
 </div>
 <style>
-.top-container{
-  flex: 0 0 auto;         
-    width: clamp(300px, 80%, 800px); /* 幅自動調整 */
-    margin: 50px auto;            
-    padding: 30px;
-    text-align: center;
-}
  .top-title h2{
   font-size:60px;
   display: flex;

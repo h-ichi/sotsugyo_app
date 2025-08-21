@@ -1,0 +1,70 @@
+<div class="top-container">
+<h2>ログイン</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="log-field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, "ログイン状態を保持する", class: "form-check-label" %>
+    </div>
+  <% end %>
+
+  <div class="login">
+    <%= f.submit "ログイン", class: "login-button" %>
+  </div>
+  <div class="help-links">
+  <p>メールアドレスを忘れた方はこちら</P>
+  <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) %><br>
+</div>
+<% end %>
+</div>
+<style>
+h2{
+  font-size:40px;
+  padding-top:48px;
+}
+
+.field{
+  margin-top:12px;
+  
+}
+
+.field input {
+  width:320px;
+  padding: 2px;    
+  font-size: 16px;  
+  box-sizing: border-box; 
+}
+
+
+
+.login {
+  margin-top:36px;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  display: inline-block;
+  background: #ff6f6f; 
+  color: black;        
+  padding: 10px 50px;
+  border-radius: 24px;
+  border: none;        
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;   
+}
+
+
+</style>
