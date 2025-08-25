@@ -91,7 +91,4 @@ production:
 
 production:
   <<: *default
-  database: myapp_production
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: <%= ENV['POSTGRES_HOST'] || 'db' %>
+  url: <%= ENV['DATABASE_URL'] %>
