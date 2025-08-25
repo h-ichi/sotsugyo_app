@@ -10,7 +10,11 @@ class OpenaiSuggestionService
   end
 
   def call
-    client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"].strip)
+    api_key = ENV["OPENAI_API_KEY"]&.strip
+    raise "OPENAI_API_KEYが設定されていません" if api_key.nil? || api_key.empty?
+
+    client = OpenAI::Client.new(access_token: api_key)
+   # client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"].strip)
 
     prompt = <<~PROMPT
       家族構成: 大人 #{@adults}人、子ども #{@children}人
