@@ -18,9 +18,10 @@ class OpenaiSuggestionService
 
     prompt = <<~PROMPT
       家族構成: 大人 #{@adults}人、子ども #{@children}人
+      子供の年齢#{@children_ages}
       興味: #{@interests}
       予算: #{@budget}
-      現在地からの距離: #{@max_distance} km以内
+      エリア: #{@area} 
       天気: #{@weather}
 
       この条件に合った休日の遊びアイデアを**必ず3つだけ**提案してください。
