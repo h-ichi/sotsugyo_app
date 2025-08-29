@@ -9,7 +9,7 @@ ja:
     messages:
       blank: "を入力してください"
       too_short: "は%{count}文字以上で入力してください"
-      taken: "は既に存在します"
+      taken: "は登録できませんでした。入力内容をご確認ください"
       not_saved:
         one: "1 件のエラーによりを登録できませんでした。"
         other: "%{count} 件のエラーにより登録できませんでした。"
@@ -24,4 +24,6 @@ ja:
     passwords:
       send_instructions: "パスワード再設定のメールを送信しました"
     failure:
-      unauthenticated: "ログインしてください"
+      failure:
+      invalid: "メールアドレスまたはパスワードが正しくありません。"
+      not_found_in_database: "メールアドレスまたはパスワードが正しくありません。"
