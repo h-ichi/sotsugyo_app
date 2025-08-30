@@ -1,0 +1,57 @@
+<div class="top-container">
+  <div class="top-title">
+    <h2><%= @user.nickname %> さんのマイページ</h2>
+    <ul class="menu-list">
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="diaryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      日記
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="diaryDropdown">
+      <li><%= link_to "日記一覧", user_diaries_path(current_user), class: "dropdown-item" %></li>
+      <li><%= link_to "日記作成", new_user_diary_path(current_user), class: "dropdown-item" %></li>
+    </ul>
+  </li>
+  
+      <li><%= link_to "ブックマーク一覧", user_bookmarks_path(current_user), class: "dropdown-item" %></li>
+    </ul>
+  </div>
+</div>
+
+<style>
+.top-container {
+  display: flex;
+  justify-content: center; 
+  text-align: center;      
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top:72px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 32px;
+  width: 250px;
+}
+
+.menu-list li {
+  margin-bottom: 20px;
+}
+
+.menu-list a {
+  display: block;
+  text-align: center;
+  padding: 15px 0;
+  background-color: #f5f7f7;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.menu-list a:hover {
+  background-color: #e0e5e5;
+}
+
+</style>
