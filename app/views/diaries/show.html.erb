@@ -1,9 +1,92 @@
-<h2><%= @diary.title %></h2>
-<p><%= @diary.diary_date %></p>
-<p><%= @diary.content %></p>
+<div class="diary-detail-container">
+  <div class="diary-card">
+    
+    <h2 class="diary-title"><%= @diary.title %></h2>
+    <p class="diary-date"><%= @diary.diary_date.strftime("%Y年%m月%d日") %></p>
 
-<% if @diary.respond_to?(:image) && @diary.image.attached? %>
-  <%= image_tag @diary.image.variant(resize_to_limit: [600, 600]) %>
-<% end %>
+    <% if @diary.respond_to?(:image) && @diary.image.attached? %>
+      <div class="diary-image">
+        <%= image_tag @diary.image.variant(resize_to_limit: [600, 400]), class: "img-fluid" %>
+      </div>
+    <% end %>
 
-<%= link_to "戻る", diaries_path %>
+    <div class="diary-content">
+      <p><%= simple_format(@diary.content) %></p>
+    </div>
+
+    <div class="button-center">
+      <%= link_to "戻る", diaries_path, class: "btn-back" %>
+    </div>
+
+  </div>
+</div>
+
+
+<style>
+.diary-detail-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.diary-card {
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+  padding: 24px;
+}
+
+.diary-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  text-align: center;
+}
+
+.diary-date {
+  font-size: 0.95rem;
+  color: #888;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.diary-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.diary-image img {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+}
+
+.diary-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  white-space: pre-wrap;
+}
+
+.button-center {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-back {
+  display: inline-block;
+  background-color: #BFEFFF;
+  color: black;
+  padding: 10px 40px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.btn-back:hover {
+  background-color: #90e0ff;
+}
+
+</style>

@@ -1,11 +1,100 @@
-<h2>日記一覧</h2>
+<h2 class="page-title">日記一覧</h2>
 
-<% @diaries.each do |diary| %>
-  <div>
-    <h3><%= link_to diary.title, diary_path(diary) %></h3>
-    <p><%= diary.diary_date %></p>
-  </div>
-<% end %>
+<div class="diaries-container">
+  <% @diaries.each do |diary| %>
+    <div class="diary-card">
+      <% if diary.respond_to?(:image) && diary.image.attached? %>
+        <div class="diary-image">
+          <%= image_tag diary.image.variant(resize_to_limit: [250, 200]) %>
+        </div>
+      <% end %>
+      <div class="diary-info">
+        <h3><%= link_to diary.title, diary_path(diary) %></h3>
+        <p class="diary-date"><%= diary.diary_date %></p>
+        <p class="diary-content"><%= truncate(diary.content, length: 80) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<%= link_to "新規作成", new_diary_path %>
+<div class="button-center">
+  <%= link_to "新規作成", new_diary_path, class: "btn-create" %>
+</div>
 
+
+<style>
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.diaries-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.diary-card {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.diary-card:hover {
+  transform: translateY(-5px);
+}
+
+.diary-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.diary-info {
+  padding: 16px;
+}
+
+.diary-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.diary-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.diary-content {
+  font-size: 1rem;
+  color: #444;
+}
+
+.button-center {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-create {
+  display: inline-block;
+  background: #ff6f6f;
+  color: #fff;
+  padding: 10px 40px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.btn-create:hover {
+  background: #ff4c4c;
+}
+
+</style>
