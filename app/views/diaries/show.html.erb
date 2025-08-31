@@ -1,0 +1,9 @@
+<h2><%= @diary.title %></h2>
+<p><%= @diary.diary_date %></p>
+<p><%= @diary.content %></p>
+
+<% if @diary.respond_to?(:image) && @diary.image.attached? %>
+  <%= image_tag @diary.image.variant(resize_to_limit: [600, 600]) %>
+<% end %>
+
+<%= link_to "戻る", diaries_path %>

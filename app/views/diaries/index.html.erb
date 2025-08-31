@@ -1,1 +1,11 @@
 <h2>日記一覧</h2>
+
+<% @diaries.each do |diary| %>
+  <div>
+    <h3><%= link_to diary.title, diary_path(diary) %></h3>
+    <p><%= diary.diary_date %></p>
+  </div>
+<% end %>
+
+<%= link_to "新規作成", new_diary_path %>
+
