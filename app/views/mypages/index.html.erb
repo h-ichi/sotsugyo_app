@@ -1,57 +1,92 @@
 <div class="top-container">
-  <div class="top-title">
-    <h2><%= @user.nickname %> さんのマイページ</h2>
+  <div class="top-card">
+    <div class="top-title">
+      <h2><%= @user.nickname %> さんのマイページ</h2>
+    </div>
+
     <ul class="menu-list">
-    <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="diaryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      日記
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="diaryDropdown">
-      <li><%= link_to "日記一覧", user_diaries_path(current_user), class: "dropdown-item" %></li>
-      <li><%= link_to "日記作成", new_user_diary_path(current_user), class: "dropdown-item" %></li>
-    </ul>
-  </li>
-  
-      <li><%= link_to "ブックマーク一覧", user_bookmarks_path(current_user), class: "dropdown-item" %></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="diaryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          日記
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="diaryDropdown">
+          <li><%= link_to "日記一覧", user_diaries_path(current_user), class: "dropdown-item" %></li>
+          <li><%= link_to "日記作成", new_user_diary_path(current_user), class: "dropdown-item" %></li>
+        </ul>
+      </li>
+      <li><%= link_to "ブックマーク一覧", user_bookmarks_path(current_user), class: "menu-item" %></li>
     </ul>
   </div>
 </div>
 
 <style>
+/* 全体コンテナ */
 .top-container {
   display: flex;
-  justify-content: center; 
-  text-align: center;      
-  padding: 20px;
+  justify-content: center;
+  padding: 40px 20px;
   box-sizing: border-box;
-  margin-top:72px;
+  
 }
 
+/* カード */
+.top-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* タイトル */
+.top-title h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #2e5d2e; /* 落ち着いた濃い緑 */
+}
+
+/* メニューリスト */
 .menu-list {
   list-style: none;
   padding: 0;
-  margin-top: 32px;
-  width: 250px;
+  margin: 0;
 }
 
 .menu-list li {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
-
-.menu-list a {
+.menu-list a, .menu-item, .dropdown-item {
   display: block;
-  text-align: center;
-  padding: 15px 0;
-  background-color: #f5f7f7;
+  padding: 10px 0;
+  background-color: #e6f2e6; /* 淡い緑 */
+  color: #2e5d2e !important;;            /* 濃い緑 */
   text-decoration: none;
-  color: black;
-  font-size: 18px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #cce6cc; /* 薄い緑の枠線 */
+  transition: background 0.15s, color 0.15s;
 }
 
-.menu-list a:hover {
-  background-color: #e0e5e5;
+.menu-list a:hover, .menu-item:hover, .dropdown-item:hover {
+  background-color: #cce6cc; /* 少し濃い緑 */
+  color: #1a3d1a;            /* 濃いめ緑で文字強調 */
+}
+
+.dropdown-menu {
+  border-radius: 8px;
+  padding: 4px 0;
+  margin-top: 4px;
+  min-width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.dropdown-item {
+  font-size: 15px;
+  margin: 0 auto;
 }
 
 </style>

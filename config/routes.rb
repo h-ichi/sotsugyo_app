@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
 
-resources :diaries, only: [:new, :create, :index, :show]
+resources :diaries
 
 
 

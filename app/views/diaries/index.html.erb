@@ -3,11 +3,6 @@
 <div class="diaries-container">
   <% @diaries.each do |diary| %>
     <div class="diary-card">
-      <% if diary.respond_to?(:image) && diary.image.attached? %>
-        <div class="diary-image">
-          <%= image_tag diary.image.variant(resize_to_limit: [250, 200]) %>
-        </div>
-      <% end %>
       <div class="diary-info">
         <h3><%= link_to diary.title, diary_path(diary) %></h3>
         <p class="diary-date"><%= diary.diary_date %></p>
@@ -27,6 +22,7 @@
   text-align: center;
   font-size: 2rem;
   margin-bottom: 30px;
+  color: #2e5d2e;
 }
 
 .diaries-container {
@@ -61,10 +57,26 @@
 }
 
 .diary-info h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.2rem;
-  color: #333;
+  margin: 0 0 14px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2e5d2e;
+  text-align: center;
+  line-height: 1.5;      /* 行間を広めに */
+  word-break: break-word; /* 長い単語も折り返す */
 }
+
+.diary-info h3 a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;   /* 複数行リンク対応 */
+  transition: color 0.2s;
+}
+
+.diary-info h3 a:hover {
+  color: #1a3d1a;
+}
+
 
 .diary-date {
   font-size: 0.9rem;

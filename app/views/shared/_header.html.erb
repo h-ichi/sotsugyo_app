@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
   <div class="container-fluid">
-    <%= link_to root_path, class:   "navbar-brand" do %>
-     <%= image_tag "logo.png", alt: "ロゴ", width:65, height: 50 %>
+    <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
+      <%= image_tag "logo.png", alt: "ロゴ", width:65, height:50, class: "me-2" %>
     <% end %>
     <button
       class="navbar-toggler"
@@ -16,18 +16,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-center">
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "TOP", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-          <%= link_to "マイページ", mypage_path, class: "nav-link" %>
+            <%= link_to "マイページ", mypage_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-           <%= form_with url: destroy_user_session_path, method: :delete, local: true, class: "logout-form" do %>
-           <%= submit_tag "ログアウト", class: "nav-link logout-link" %>
-           <% end %>
+            <%= form_with url: destroy_user_session_path, method: :delete, local: true, class: "d-flex m-0 p-0" do %>
+              <%= submit_tag "ログアウト", class: "btn btn-link nav-link m-0 p-0" %>
+            <% end %>
           </li>
         <% else %>
           <li class="nav-item">
@@ -47,6 +47,34 @@
 
 <style>
 .navbar {
-  padding: 1.5rem 1.5rem; 
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
+}
+
+.navbar-brand .brand-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.nav-link:hover {
+  color: #ffe082 !important;
+  transform: translateY(-2px);
+}
+
+.btn-link.nav-link {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-link.nav-link:hover {
+  color: #ffe082 !important;
 }
 </style>
