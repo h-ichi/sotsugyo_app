@@ -1,26 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  #ログイン前のトップページ
-  root 'top#index'
+ # ログイン前のトップページ
+ root 'top#index'
 
-  # Suggestions のルート
-  resources :suggestions, only: [:index, :show, :new, :create] 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+ # Suggestions のルート
+ resources :suggestions, only: [:index, :show, :new, :create]
 
-  #mypagesのルート
-  get "mypage", to: "mypages#index", as: :mypage
- 
-  #diariesのルート
-  resources :users do
-    resources :diaries
-  end
+ # マイページ
+ get "mypage", to: "mypages#index", as: :mypage
 
-  resources :users do
-    resources :bookmarks, only: [:index]
-  end
+ # diaries, bookmarks のルート
+ resources :diaries  
+ resources :bookmarks, only: [:index, :create, :destroy]
 
-
-resources :diaries
 
 
 

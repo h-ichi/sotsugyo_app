@@ -1,20 +1,20 @@
 class DiariesController < ApplicationController
+  before_action :authenticate_user!   # 👈 ログイン必須
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
 
   def index
-    @diaries = Diary.order(diary_date: :desc)
+    @diaries = current_user.diaries.order(diary_date: :desc)
   end
 
   def show
-    @diary = Diary.find(params[:id])
   end
 
   def new
-    @diary = Diary.new
+    @diary = current_user.diaries.new
   end
 
   def create
-    @diary = Diary.new(diary_params)
+    @diary = current_user.diaries.new(diary_params)
     if @diary.save
       redirect_to @diary, notice: "日記を作成しました"
     else
@@ -22,8 +22,7 @@ class DiariesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @diary.update(diary_params)
@@ -39,8 +38,9 @@ class DiariesController < ApplicationController
   end
 
   private
+
   def set_diary
-    @diary = Diary.find(params[:id])
+    @diary = current_user.diaries.find(params[:id])  # 👈 他人の日記は見れない
   end
 
   def diary_params

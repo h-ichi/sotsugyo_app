@@ -10,11 +10,11 @@
           日記
         </a>
         <ul class="dropdown-menu" aria-labelledby="diaryDropdown">
-          <li><%= link_to "日記一覧", user_diaries_path(current_user), class: "dropdown-item" %></li>
-          <li><%= link_to "日記作成", new_user_diary_path(current_user), class: "dropdown-item" %></li>
+          <li><%= link_to "日記一覧", diaries_path, class: "dropdown-item" %></li>
+          <li><%= link_to "日記を書く", new_diary_path, class: "dropdown-item" %></li>
         </ul>
       </li>
-      <li><%= link_to "ブックマーク一覧", user_bookmarks_path(current_user), class: "menu-item" %></li>
+      <li><%= link_to "ブックマーク一覧", bookmarks_path, class: "menu-item" %></li>
     </ul>
   </div>
 </div>
