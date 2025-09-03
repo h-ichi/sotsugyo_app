@@ -3,6 +3,11 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["count", "fields"]
 
+  connect() {
+    // ページ読み込み時に初期化
+    this.update()
+  }
+
   update() {
     const count = parseInt(this.countTarget.value || 0, 10)
     this.fieldsTarget.innerHTML = ""
